@@ -16,6 +16,17 @@ PROJECT_ROOT = Path(__file__).parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "opendata" / "data" / "matches"
 MATCHES_JSON = PROJECT_ROOT / "data" / "opendata" / "data" / "matches.json"
 
+def load_physical_aggregates() -> pd.DataFrame:
+    """Load the A-League physical aggregates dataset."""
+    agg_path = (
+        PROJECT_ROOT
+        / "data"
+        / "opendata"
+        / "data"
+        / "aggregates"
+        / "aus1league_physicalaggregates_20242025_midfielders.csv"
+    )
+    return pd.read_csv(agg_path)
 
 def load_match_metadata(match_id: str) -> Dict:
     """Load match.json file - contains teams, players, pitch dimensions."""
@@ -47,15 +58,14 @@ def load_tracking_data(match_id: str) -> pd.DataFrame:
 def load_dynamic_events(match_id: str) -> pd.DataFrame:
     """
     Load dynamic_events.csv - pre-computed events like possessions, runs, passes.
-    
-    Has 212 columns but most are sparse (event-type specific).
     """
     file_path = DATA_DIR / match_id / f"{match_id}_dynamic_events.csv"
-    
+
     if not file_path.exists():
         raise FileNotFoundError(f"Events file not found: {file_path}")
-    
-    return pd.read_csv(file_path)
+
+    # Use low_memory=False to avoid dtype warnings from mixed types in sparse columns
+    return pd.read_csv(file_path, low_memory=False)
 
 
 def load_phases(match_id: str) -> pd.DataFrame:
