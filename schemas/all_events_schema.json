@@ -1,0 +1,1481 @@
+{
+    "name": "all_events",
+    "description": "Schema for all events",
+    "columns": [
+        {
+            "name": "event_id",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "index",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "match_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "frame_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "frame_end",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "frame_physical_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "time_start",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "time_end",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "minute_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "second_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "duration",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "period",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "attacking_side_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "attacking_side",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "event_type_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "event_type",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "event_subtype_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "event_subtype",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "player_name",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "player_position_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "player_position",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "player_in_possession_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_name",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_position_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_position",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "team_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_shortname",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "x_start",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "y_start",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "channel_id_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "channel_start",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "third_id_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "third_start",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "penalty_area_start",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "x_end",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "y_end",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "channel_id_end",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "channel_end",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "third_id_end",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "third_end",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "penalty_area_end",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "associated_player_possession_event_id",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "associated_player_possession_frame_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "associated_player_possession_frame_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "associated_player_possession_end_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "associated_player_possession_end_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "associated_off_ball_run_event_id",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "associated_off_ball_run_subtype_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "associated_off_ball_run_subtype",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "game_state_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "game_state",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "team_score",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "opponent_team_score",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "phase_index",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "player_possession_phase_index",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "first_player_possession_in_team_possession",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "last_player_possession_in_team_possession",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "lead_to_different_phase",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "issued_from_different_phase",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "n_player_possessions_in_phase",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_possession_loss_in_phase",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "team_in_possession_phase_type_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_in_possession_phase_type",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "team_out_of_possession_phase_type_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_out_of_possession_phase_type",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "current_team_in_possession_next_phase_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "current_team_in_possession_next_phase_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "current_team_out_of_possession_next_phase_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "current_team_out_of_possession_next_phase_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "current_team_in_possession_previous_phase_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "current_team_in_possession_previous_phase_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "current_team_out_of_possession_previous_phase_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "current_team_out_of_possession_previous_phase_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "game_interruption_before_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "game_interruption_before",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "game_interruption_after_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "game_interruption_after",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "lead_to_shot",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "lead_to_goal",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "distance_covered",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "trajectory_angle",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "trajectory_direction_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "trajectory_direction",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "in_to_out",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "out_to_in",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "speed_avg",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "speed_avg_band_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "speed_avg_band",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "separation_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "separation_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "separation_gain",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "last_defensive_line_x_start",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "last_defensive_line_x_end",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "delta_to_last_defensive_line_start",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "delta_to_last_defensive_line_end",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "delta_to_last_defensive_line_gain",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "last_defensive_line_height_start",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "last_defensive_line_height_end",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "last_defensive_line_height_gain",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "inside_defensive_shape_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "inside_defensive_shape_end",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "start_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "start_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "end_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "end_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "consecutive_on_ball_engagements",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "one_touch",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "quick_pass",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "carry",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "forward_momentum",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "is_header",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "hand_pass",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "initiate_give_and_go",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pass_angle_received",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_direction_received_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_direction_received",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pass_distance_received",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_range_received_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_range_received",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pass_outcome_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_outcome",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "targeted_passing_option_event_id",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "high_pass",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_name",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_position_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_position",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_x_pass",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_y_pass",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_channel_pass_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_channel_pass",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_third_pass_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_third_pass",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_penalty_area_pass",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_x_reception",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_y_reception",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_channel_reception_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_channel_reception",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_third_reception_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_third_reception",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_penalty_area_reception",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_distance_to_goal_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_distance_to_goal_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_angle_to_goal_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_angle_to_goal_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_average_speed",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_speed_avg_band_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_speed_avg_band",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "speed_difference",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_xpass_completion",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_difficult_pass_target",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_xthreat",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_targeted_dangerous",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_off_ball_runs",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_line_break",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_first_line_break",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_second_last_line_break",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_last_line_break",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_ahead",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_dangerous_difficult",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_dangerous_not_difficult",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_not_dangerous_not_difficult",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_not_dangerous_difficult",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_at_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_at_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_ahead_at_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_passing_options_ahead_at_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_teammates_ahead_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_teammates_ahead_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_opponents_ahead_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_opponents_ahead_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_teammates_ahead_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_teammates_ahead_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_teammates_within_5m_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_teammates_within_5m_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_opponents_within_5m_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_player_targeted_opponents_within_5m_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "organised_defense",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "defensive_structure",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_defensive_lines",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "first_line_break",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "first_line_break_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "first_line_break_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "second_last_line_break",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "second_last_line_break_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "second_last_line_break_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "last_line_break",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "last_line_break_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "last_line_break_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "furthest_line_break_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "furthest_line_break",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "furthest_line_break_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "furthest_line_break_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_distance",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_distance_range_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_distance_range",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_distance_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_distance_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_distance_min",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_distance_start_physical",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "close_at_player_possession_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_angle",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_direction_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "interplayer_direction",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "angle_of_engagement",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "goal_side_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "goal_side_end",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pass_distance",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_range_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_range",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pass_angle",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_direction_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pass_direction",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pass_ahead",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "n_opponents_ahead_player_in_possession_pass_moment",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_opponents_ahead_pass_reception",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_opponents_bypassed",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "location_to_player_in_possession_id_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "location_to_player_in_possession_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "location_to_player_in_possession_id_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "location_to_player_in_possession_end",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "distance_to_player_in_possession_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "distance_to_player_in_possession_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_x_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_y_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_channel_id_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_channel_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_third_id_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_third_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_penalty_area_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_x_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_y_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_channel_id_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_channel_end",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_third_id_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_third_end",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "player_in_possession_penalty_area_end",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "targeted",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "received",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "received_in_space",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "dangerous",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "difficult_pass_target",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "xthreat",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "xpass_completion",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "passing_option_score",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "predicted_passing_option",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "peak_passing_option_frame",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "passing_option_at_player_possession_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "n_simultaneous_runs",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "give_and_go",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "intended_run_behind",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "push_defensive_line",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "break_defensive_line",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "passing_option_at_start",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "n_simultaneous_passing_options",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "passing_option_at_pass_moment",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "n_opponents_ahead_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_opponents_ahead_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "n_opponents_overtaken",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pressing_chain",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pressing_chain_length",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pressing_chain_end_type_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pressing_chain_end_type",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "pressing_chain_index",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "index_in_pressing_chain",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "simultaneous_defensive_engagement_same_target",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "simultaneous_defensive_engagement_same_target_rank",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_breaking_passing_option_id",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_break_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_break",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_breaking_passing_option_attempted",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_breaking_passing_option_xthreat",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_breaking_passing_option_dangerous",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_breaking_passing_option_run_subtype_id",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "affected_line_breaking_passing_option_run_subtype",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "possession_danger",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "beaten_by_possession",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "beaten_by_movement",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "stop_possession_danger",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "reduce_possession_danger",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "force_backward",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "xloss_player_possession_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "xloss_player_possession_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "xloss_player_possession_max",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "xshot_player_possession_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "xshot_player_possession_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "xshot_player_possession_max",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "is_player_possession_start_matched",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "is_player_possession_end_matched",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "is_previous_pass_matched",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "is_pass_reception_matched",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "fully_extrapolated",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "minute",
+            "type": "integer",
+            "nullable": false
+        }
+    ]
+}

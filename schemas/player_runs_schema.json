@@ -1,0 +1,71 @@
+{
+    "name": "player_runs",
+    "description": "Schema for player runs",
+    "columns": [
+        {
+            "name": "match_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "player_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "run_count",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "runs_per_90",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "avg_xthreat",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "max_xthreat",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "threat_per_90",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "high_value_run_pct",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "high_value_runs_per_90",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "avg_run_speed",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "avg_opponents_beaten",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "runs_ahead",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "runs_behind",
+            "type": "number",
+            "nullable": false
+        }
+    ]
+}

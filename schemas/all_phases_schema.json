@@ -1,0 +1,226 @@
+{
+    "name": "all_phases",
+    "description": "Schema for all phases",
+    "columns": [
+        {
+            "name": "index",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "match_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "frame_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "frame_end",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "time_start",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "time_end",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "minute_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "second_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "duration",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "period",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "attacking_side_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_in_possession_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "attacking_side",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "team_in_possession_shortname",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "n_player_possessions_in_phase",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_possession_loss_in_phase",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "team_possession_lead_to_goal",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "team_possession_lead_to_shot",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "team_in_possession_phase_type",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "team_in_possession_phase_type_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_out_of_possession_phase_type",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "team_out_of_possession_phase_type_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "x_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "y_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "channel_id_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "channel_start",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "third_id_start",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "third_start",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "penalty_area_start",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "x_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "y_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "channel_id_end",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "channel_end",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "third_id_end",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "third_end",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "penalty_area_end",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "team_in_possession_width_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_in_possession_width_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_in_possession_length_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_in_possession_length_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_out_of_possession_width_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_out_of_possession_width_end",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_out_of_possession_length_start",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "team_out_of_possession_length_end",
+            "type": "number",
+            "nullable": true
+        }
+    ]
+}
