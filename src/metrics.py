@@ -240,7 +240,7 @@ def aggregate_player_sprints(
         min_minutes: Minimum minutes to include player
     """
     # Group by player-match
-    group_cols = ['match_id', 'player_id', 'team_id']
+    group_cols = ['match_id', 'player_id']
     
     player_sprints = sprints_sdf.groupBy(group_cols).agg(
         F.count('sprint_id').alias('sprint_count'),
@@ -264,7 +264,7 @@ def aggregate_player_sprints(
     # Join with player metadata to get minutes_played and position
     player_sprints = player_sprints.join(
         player_meta_sdf,
-        on=['match_id', 'player_id', 'team_id'],
+        on=['match_id', 'player_id'],
         how='left'
     )
     
@@ -300,7 +300,6 @@ def aggregate_player_sprints(
     ]
     
     return player_sprints.select(*output_cols)
-
 
 def aggregate_off_ball_runs(
     runs_sdf: SparkDataFrame,
