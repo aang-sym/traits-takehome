@@ -260,10 +260,10 @@ For more detail, see **docs/decisions.md**.
 │   └── 08_visualisation.ipynb
 │
 ├── output/                   # Generated tables (created after running notebooks)
-│                             # includes final player_metrics.csv
+│   └── player_metrics.csv    # Final aggregations .csv
 │
 ├── schemas/                  # Generated JSON schemas (created after running notebooks)
-│                             # includes final schema for player_metrics
+│   └── player_metrics_schema.json
 │
 ├── src/                      # Small helper modules
 │   ├── loaders.py
@@ -271,11 +271,11 @@ For more detail, see **docs/decisions.md**.
 │   ├── metrics.py
 │   └── visualisation.py
 │
-├── infra/                    # Mock IaC file (AWS CDK)
+├── infra/                    # Mock IaC file (AWS CDK) + system design
+│   ├── system_design.md
 │   └── traits_pipeline_stack.py
 │
-├── docs/                     # System design + decisions
-│   ├── system_design.md
+├── docs/                     # Decisions (elaboration on README.md)
 │   └── decisions.md
 │
 └── README.md
