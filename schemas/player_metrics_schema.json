@@ -1,0 +1,371 @@
+{
+    "name": "player_metrics",
+    "description": "Schema for player metrics",
+    "columns": [
+        {
+            "name": "match_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "player_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_player_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "trackable_object",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_id",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "team_name",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "shirt_number",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "player_short_name",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "first_name",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "last_name",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "position_group",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "role_name",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "role_acronym",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "minutes_played",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "minutes_played_regular",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "start_frame",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "end_frame",
+            "type": "number",
+            "nullable": false
+        },
+        {
+            "name": "start_time",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "end_time",
+            "type": "string",
+            "nullable": true
+        },
+        {
+            "name": "started",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "yellow_card",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "red_card",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "goals",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "own_goals",
+            "type": "integer",
+            "nullable": false
+        },
+        {
+            "name": "injured",
+            "type": "boolean",
+            "nullable": false
+        },
+        {
+            "name": "birthday",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "gender",
+            "type": "string",
+            "nullable": false
+        },
+        {
+            "name": "sprint_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "sprints_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "sprint_distance_m",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "sprint_distance_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "avg_sprint_speed_kmh",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "max_sprint_speed_kmh",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "high_value_sprint_pct",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "attacking_sprint_pct",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "defensive_sprint_pct",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "sprints_in_shot_possessions_pct",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "sprints_in_goal_possessions_pct",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "sprints_in_attacking_third_pct",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "high_value_sprints_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "run_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "runs_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "avg_xthreat",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "max_xthreat",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "threat_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "high_value_run_pct",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "high_value_runs_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "avg_run_speed",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "avg_opponents_beaten",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "runs_ahead",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "runs_behind",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pressing_action_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "pressing_actions_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "press_success_rate",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "regain_rate",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "disruption_rate",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "successful_press_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "successful_presses_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "total_regain_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "regains_per_90",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "direct_regain_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "indirect_regain_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "total_disruption_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "direct_disruption_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "indirect_disruption_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "presses_leading_to_shot",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "presses_leading_to_goal",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "shot_creation_rate",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "high_block_press_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "medium_block_press_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "low_block_press_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "counter_press_count",
+            "type": "number",
+            "nullable": true
+        },
+        {
+            "name": "counter_presses_per_90",
+            "type": "number",
+            "nullable": true
+        }
+    ]
+}

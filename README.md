@@ -94,9 +94,11 @@ Run the notebooks in order:
 - `player_metadata.csv`  
 - **`player_metrics.csv`** — final player‑match table  
 
+The final `player_metrics.csv` and its matching `player_metrics_schema.json` are included in the repository so reviewers can inspect the final table without running the full pipeline.
+
 Schemas documenting these outputs are in `schemas/`.
 
-Output csv files and schema jsons are loaded into `output/` and `schemas/` respectively through running the notebooks.
+All other output csv files and schema jsons are loaded into `output/` and `schemas/` respectively through running the notebooks.
 
 ---
 
@@ -220,6 +222,10 @@ For more detail on these choices and how they’d look in a bigger environment, 
 This is enough to catch obvious issues in a small prototype.  
 In a fuller codebase I’d add unit tests for core helpers, a small end‑to‑end test on synthetic data, and a few data‑quality checks that run automatically.
 
+For this prototype, logging is intentionally simple — each notebook prints out row counts, distribution summaries, merge diagnostics, and any basic warnings. This keeps things transparent when stepping through the workflow.  
+
+In a production environment (Glue) I’d switch to structured logging (logger.info with JSON payloads) and emit CloudWatch metrics for match‑ingestion counts, event volumes per match, empty or malformed inputs, success/failure of each metric‑aggregation stage, and simple timings for the sprint/run/pressing steps.
+
 ---
 
 ## Prototype vs production (brief notes)
@@ -254,8 +260,10 @@ For more detail, see **docs/decisions.md**.
 │   └── 08_visualisation.ipynb
 │
 ├── output/                   # Generated tables (created after running notebooks)
+│                             # includes final player_metrics.csv
 │
 ├── schemas/                  # Generated JSON schemas (created after running notebooks)
+│                             # includes final schema for player_metrics
 │
 ├── src/                      # Small helper modules
 │   ├── loaders.py
@@ -286,4 +294,4 @@ It includes:
 - phases of play,  
 - match metadata.
 
----
+---</file>

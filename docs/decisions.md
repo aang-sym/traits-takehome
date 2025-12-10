@@ -76,7 +76,7 @@ I focused on three areas: sprints, off‑ball runs, and pressing. Each metric is
 - Sprint start/end detection is intentionally simple but stable.  
 - Each sprint is joined to the phase it mostly sits in. This helps identify whether a player is sprinting in meaningful attacking moments or just covering ground.
 
-I’m not using SkillCorner’s Physical Aggregates here because the take‑home asked for an example of deriving an event directly from tracking.
+Although I calculate sprints directly from tracking for the take‑home, in production I’d lean on SkillCorner’s Physical Aggregates. They already handle COD detection and TIP/OTIP normalisation, which avoids rebuilding low‑level movement inference and keeps the work focused on combining physical, tactical, and value dimensions.
 
 ### 3.2 Off‑ball Runs
 
@@ -91,7 +91,8 @@ I’m not using SkillCorner’s Physical Aggregates here because the take‑home
 **Key decisions**
 
 - SkillCorner already provides run detection, run subtype, xThreat, and dangerous flags. Rebuilding those models isn’t valuable in a short assessment, and a real pipeline would use these fields directly.
-- I keep the aggregation focused on metrics that differentiate players - value generation, run types, and the phases where runs occur.
+
+These metrics naturally sit across three dimensions: physical effort, tactical context, and value creation. SkillCorner’s run model already covers the latter two — including whether a run was ‘served’, which links off‑ball movement to actual outcomes and highlights players who consistently present viable receiving options.
 
 ### 3.3 Pressing
 
@@ -107,7 +108,8 @@ I’m not using SkillCorner’s Physical Aggregates here because the take‑home
 
 - A press is “successful” if it leads to a regain or disruption, using SkillCorner’s outcome fields.  
 - Volume and effectiveness are kept separate - they reflect different behaviours.  
-- Again, SkillCorner provides high‑quality derived fields; I focus on aggregation rather than recreating lower‑level inference.
+
+I avoid rebuilding SkillCorner’s ML models here — their Receiver, Threat, and defensive-structure outputs already give stable tactical context. The useful work in this format is aggregating and contextualising those fields, not recreating the underlying models.
 
 ---
 
@@ -123,7 +125,7 @@ The validation here aims to catch obvious errors rather than form a full test su
 - Percentages fall within [0, 1].  
 - Derived counts (e.g. “successful_presses_per_90”) map cleanly back to raw counts.
 
-These checks live in the notebooks to keep them visible and transparent.
+The validation follows SkillCorner’s own specifications: Dynamic Events defines valid event_type/subtype combinations, the Physical Glossary defines speed bands, and the Phases spec defines frame‑coverage rules. Using these as the source of truth keeps the checks aligned with expected data guarantees.
 
 **What I’d add in a real project**
 
@@ -194,6 +196,8 @@ This is a notebook‑driven prototype. A real implementation would use the same 
 - Run metric computation via Spark (Glue).  
 - Register cleaned tables in a catalog (Glue → Athena/Redshift).  
 - The logic itself remains simple - mainly the I/O and batching changes.
+
+Normalising per‑90 works for physical output, but tactical opportunities vary by style and match state. In production I’d use TIP‑based normalisation (e.g., P30 TIP) for possession‑linked actions so comparisons are fair across roles and team contexts.
 
 ### 6.2 Orchestration
 
