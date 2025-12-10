@@ -213,7 +213,7 @@ Normalising per‑90 works for physical output, but tactical opportunities vary 
 1. Detect new matches in S3 after Lambda ingestion.  
 2. Process tracking + events to extract metrics.  
 3. Update downstream tables.  
-4. Trigger DQ checks and alerts on failurem utilise DLQ if needed.
+4. Trigger DQ checks and alerts on failure.
 
 ### 6.3 Monitoring
 
