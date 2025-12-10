@@ -9,11 +9,9 @@ This module provides functions for:
 
 import pandas as pd
 import numpy as np
-from typing import Optional, List
 from pyspark.sql import DataFrame as SparkDataFrame
 from pyspark.sql import functions as F
-from pyspark.sql.window import Window
-from src.eda import explode_player_tracking, calculate_distances, clean_max_speed_kmh
+from src.eda import explode_player_tracking, calculate_distances
 
 TRACKING_FPS = 10
 SPRINT_THRESHOLD_KMH = 24.5

@@ -7,7 +7,6 @@ and calculate player-level metrics like distance and speed.
 
 import pandas as pd
 import numpy as np
-from typing import Optional
 
 # Constants
 TRACKING_FPS = 10  # Frames per second
