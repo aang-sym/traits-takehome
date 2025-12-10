@@ -3,7 +3,7 @@
 **Project:** SkillCorner A-League Tracking Data ETL  
 **Scope:** Local prototype for 10 matches
 
-The brief suggested 4–6 hours. I spent closer to 10–12 to build something coherent end‑to‑end, with clear metric definitions, validation, and visual examples. The aim here isn’t to pretend this is a production platform - it’s a structured prototype that shows how I approach modelling, transforming, and interpreting tracking data.
+The brief suggested 4–6 hours. I spent closer to 10–12 to build something coherent end‑to‑end, with clear metric definitions, validation, and visual examples. The aim is not to mimic a full production platform. It is a structured prototype that shows how I reason about modelling, transforming, and interpreting tracking data, and what the pipeline would look like if it were taken further.
 
 ---
 
@@ -36,7 +36,7 @@ The pipeline is structured around notebooks for the main steps:
 - Validation  
 - Visualisation  
 
-Common logic (speed smoothing, sprint detection, basic aggregations) lives in small helpers under `src/`. The aim isn’t to create a framework - just avoid duplication and keep the notebooks focused.
+Common logic (speed smoothing, sprint detection, basic aggregations) lives in small helpers under `src/`. The goal is not to build a framework. It is to keep the notebooks readable and make the metric logic easy to lift into a script or Spark job.
 
 **Why this approach**
 
@@ -47,7 +47,7 @@ The task explicitly wants `.ipynb` deliverables, which naturally lends itself to
 1. Load tracking, events, phases, and metadata.  
 2. Sanity‑check distributions and ranges.  
 3. Build metrics:
-   - Detect sprints from tracking, join to phases.
+   - Detect sprints from tracking.
    - Aggregate off‑ball run events and SkillCorner xThreat / dangerous flags.
    - Aggregate pressing events and their outcomes.
 4. Merge everything back onto player‑match metadata.  
@@ -72,27 +72,26 @@ I focused on three areas: sprints, off‑ball runs, and pressing. Each metric is
 
 **Key decisions**
 
-- A speed threshold in the mid‑20s km/h, applied after smoothing raw speeds, avoids single‑frame spikes caused by tracking noise.  
-- Sprint start/end detection is intentionally simple but stable.  
+- A speed threshold of 25 km/h, applied after smoothing raw speeds, avoids single‑frame spikes caused by tracking noise.  
+- Sprint start and end detection is intentionally simple but stable enough for the sample size.  
 - Each sprint is joined to the phase it mostly sits in. This helps identify whether a player is sprinting in meaningful attacking moments or just covering ground.
 
 Although I calculate sprints directly from tracking for the take‑home, in production I’d lean on SkillCorner’s Physical Aggregates. They already handle COD detection and TIP/OTIP normalisation, which avoids rebuilding low‑level movement inference and keeps the work focused on combining physical, tactical, and value dimensions.
 
-### 3.2 Off‑ball Runs
+### 3.2 Off-ball Runs
 
 **What I calculate**
 
 - Runs per 90  
-- xThreat metrics (average + total per 90)  
-- High‑value run proportions  
+- xThreat metrics (average + per 90)  
+- High-value run share (`dangerous` flag)  
 - Simple directional context (ahead / behind)  
-- Phase context (create / finish percentages)
 
 **Key decisions**
 
-- SkillCorner already provides run detection, run subtype, xThreat, and dangerous flags. Rebuilding those models isn’t valuable in a short assessment, and a real pipeline would use these fields directly.
-
-These metrics naturally sit across three dimensions: physical effort, tactical context, and value creation. SkillCorner’s run model already covers the latter two — including whether a run was ‘served’, which links off‑ball movement to actual outcomes and highlights players who consistently present viable receiving options.
+- SkillCorner already provides run detection, subtypes, xThreat, and a `dangerous` flag. Re-deriving those in a take-home isn’t useful — a real pipeline would use the model outputs directly.
+- The metric is kept phase-agnostic. I initially explored joining runs to phase-of-play, but for a single-match sample it didn’t add enough signal over the model’s own threat outputs. In a multi-match setting you’d re-introduce phase context.
+- The aggregation focuses on signals that actually separate players: effort (volume), value creation (xThreat), how often their runs are dangerous, and simple subtype patterns that show how a player actually moves off the ball.
 
 ### 3.3 Pressing
 
@@ -109,7 +108,7 @@ These metrics naturally sit across three dimensions: physical effort, tactical c
 - A press is “successful” if it leads to a regain or disruption, using SkillCorner’s outcome fields.  
 - Volume and effectiveness are kept separate - they reflect different behaviours.  
 
-I avoid rebuilding SkillCorner’s ML models here — their Receiver, Threat, and defensive-structure outputs already give stable tactical context. The useful work in this format is aggregating and contextualising those fields, not recreating the underlying models.
+I avoid rebuilding SkillCorner’s ML models here - their Receiver, Threat, and defensive-structure outputs already give stable tactical context. The useful work here is aggregating and contextualising those fields so they tell a clear story about player behaviour, not recreating the underlying models.
 
 ---
 
@@ -131,7 +130,8 @@ The validation follows SkillCorner’s own specifications: Dynamic Events define
 
 - Unit tests for helper functions (smoothing, sprint detection, phase joins).  
 - A small synthetic end‑to‑end dataset to validate shapes and invariants.  
-- Automated DQ checks (non‑null IDs, positive minutes, percentile ranges) that run on each batch.
+- Automated DQ checks (non‑null IDs, positive minutes, percentile ranges) that run on each batch.  
+The point is not exhaustive validation. It is catching structural issues early so the metric tables stay trustworthy as the pipeline grows.
 
 ---
 
@@ -161,7 +161,7 @@ Shows whether sprinting volume translates into sprints that matter tactically.
 
 **Off‑ball runs:**  
 `threat_per_90` vs `high_value_runs_per_90`  
-Classic volume vs value - who runs a lot, and who generates actual threat.
+A straightforward volume versus value read - who runs a lot, and who generates actual threat.
 
 **Pressing:**  
 `successful_presses_per_90` vs `pressing_actions_per_90`  
@@ -192,10 +192,13 @@ This is a notebook‑driven prototype. A real implementation would use the same 
 
 **Production**
 
-- Store raw tracking/events/phases in S3 (bronze, silver, gold) as partitioned Parquet.  
-- Run metric computation via Spark (Glue).  
-- Register cleaned tables in a catalog (Glue → Athena/Redshift).  
-- The logic itself remains simple - mainly the I/O and batching changes.
+- A scheduled Lambda (triggered by EventBridge) calls the SkillCorner API and writes the raw match files into an ingestion bucket (bronze).
+- A Glue job loads bronze data, applies the first-pass cleaning/normalisation, and writes structured tables into a processed bucket (silver).
+- A second Glue/Spark step computes the player-level metrics and writes the final analytical tables into a curated bucket (gold).
+- Cleaned tables are registered in the Glue Data Catalog so they can be queried in Athena or loaded into Redshift.
+- The core logic stays straightforward — the main differences in production are around orchestration, batching, and the bronze/silver/gold separation.
+
+The conceptual logic stays the same. Production formalises it with clearer boundaries, scheduling, and observability.
 
 Normalising per‑90 works for physical output, but tactical opportunities vary by style and match state. In production I’d use TIP‑based normalisation (e.g., P30 TIP) for possession‑linked actions so comparisons are fair across roles and team contexts.
 
@@ -204,10 +207,10 @@ Normalising per‑90 works for physical output, but tactical opportunities vary 
 **Prototype:** manual, run in notebook order.  
 **Production:** Step Functions or Airflow controlling steps like:
 
-1. Detect new matches in S3.  
+1. Detect new matches in S3 after Lambda ingestion.  
 2. Process tracking + events to extract metrics.  
 3. Update downstream tables.  
-4. Trigger DQ checks and alerts on failure.
+4. Trigger DQ checks and alerts on failurem utilise DLQ if needed.
 
 ### 6.3 Monitoring
 
@@ -228,10 +231,12 @@ A few things I’d refine with more time:
 - Pressing is measured at the player level - modelling pressing chains or collective behaviour would require sequence logic.  
 - A test suite around helpers would make the pipeline easier to productionise.
 
+Overall, the prototype covers the core modelling decisions. The next step would be turning the metric logic into a small, testable library ready to run at scale.
+
 If I extended this codebase, I’d prioritise:
 
 1. Moving metric logic into a small, testable module ready for Spark.  
 2. Improving sprint/run definitions with domain input.  
-3. Adding lightweight orchestration and monitoring examples to tie the story together.
+3. Adding lightweight orchestration and monitoring examples to tie it all together.
 
----
+---</file>
