@@ -196,7 +196,10 @@ This is a notebook‑driven prototype. A real implementation would use the same 
 - A Glue job loads bronze data, applies the first-pass cleaning/normalisation, and writes structured tables into a processed bucket (silver).
 - A second Glue/Spark step computes the player-level metrics and writes the final analytical tables into a curated bucket (gold).
 - Cleaned tables are registered in the Glue Data Catalog so they can be queried in Athena or loaded into Redshift.
-- The core logic stays straightforward — the main differences in production are around orchestration, batching, and the bronze/silver/gold separation.
+
+At larger scale, the silver and gold tables would be written as partitioned Parquet, typically by match date or competition. This keeps scans small and ensures new matches can be processed incrementally without reworking historical data.
+
+Schema evolution is handled by keeping the bronze layer flexible and designing the silver and gold tables to tolerate additive fields. The Glue Data Catalog records schema updates, and as long as changes are additive, downstream metric logic continues to operate without rework. This avoids breakage when SkillCorner extends their models with new attributes.
 
 The conceptual logic stays the same. Production formalises it with clearer boundaries, scheduling, and observability.
 
