@@ -25,7 +25,7 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Download SkillCorner Open Data:
+### Download SkillCorner Open Data:
 
 ```bash
 git lfs install
@@ -41,6 +41,19 @@ You should now see ten match directories under:
 ```
 data/opendata/data/matches/
 ```
+### Selecting the Python environment for notebooks
+
+If VS Code or Jupyter doesn't automatically detect the virtual environment, register it as a Jupyter kernel:
+```bash
+python -m ipykernel install --user --name traits-takehome --display-name "Python (traits-takehome)"
+```
+
+After registering the kernel:
+
+* Restart VS Code (or Reload Window)
+* Open any notebook and click Select Kernel
+* Choose Python (traits-takehome)
+(or select ./venv/bin/python via "Enter interpreter path" if it doesn't appear)
 
 ---
 
@@ -82,6 +95,8 @@ Run the notebooks in order:
 - **`player_metrics.csv`** — final player‑match table  
 
 Schemas documenting these outputs are in `schemas/`.
+
+Output csv files and schema jsons are loaded into `output/` and `schemas/` respectively through running the notebooks.
 
 ---
 
